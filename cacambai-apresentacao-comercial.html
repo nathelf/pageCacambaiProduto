@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CaçambAI — Apresentação Comercial</title>
+<style>
+  :root {
+    --navy: #0f172a;
+    --navy-light: #1e3a5f;
+    --accent: #f5a623;
+    --accent-dark: #d6860a;
+    --green: #16a34a;
+    --bg: #f4f5f7;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --card-border: #e5e7eb;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.65;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 55%, var(--navy) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 90px 24px 80px;
+  }
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid rgba(245,166,35,0.5);
+    background: rgba(245,166,35,0.12);
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+  .wordmark {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .wordmark span { color: var(--accent); }
+  .tagline {
+    font-size: 1.35rem;
+    font-weight: 500;
+    margin: 20px auto 0;
+    max-width: 640px;
+    opacity: 0.95;
+  }
+  .hero-sub {
+    font-size: 1.02rem;
+    color: #cbd5e1;
+    margin: 22px auto 0;
+    max-width: 600px;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--card-border);
+  }
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0 0 12px;
+    color: var(--navy);
+  }
+  .section-kicker {
+    color: var(--accent-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  .lead {
+    font-size: 1.08rem;
+    color: var(--muted);
+    max-width: 760px;
+  }
+
+  /* DIFERENCIAIS GRID */
+  .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 36px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .card .icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(245,166,35,0.12);
+    color: var(--accent-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .card .icon svg { width: 24px; height: 24px; }
+  .card h3 {
+    font-size: 1.05rem;
+    margin: 0 0 8px;
+    color: var(--navy);
+  }
+  .card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  /* TOUR DE TELAS */
+  .tour-intro { margin-bottom: 8px; }
+  .screen-block {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    padding: 56px 0;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .screen-block:last-child { border-bottom: none; padding-bottom: 0; }
+  .screen-block.reverse { flex-direction: row-reverse; }
+  .screen-image { flex: 1.35; min-width: 0; }
+  .screen-text { flex: 1; }
+
+  .tag {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .screen-text h3 {
+    font-size: 1.5rem;
+    color: var(--navy);
+    margin: 0 0 12px;
+    font-weight: 800;
+  }
+  .screen-text p {
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  .screen-text ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+  .screen-text li {
+    padding-left: 26px;
+    position: relative;
+    margin-bottom: 9px;
+  }
+  .screen-text li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(22,163,74,0.12);
+    border: 2px solid var(--green);
+  }
+
+  /* BROWSER FRAME */
+  .browser-frame {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 24px 48px -12px rgba(15,23,42,0.25);
+    border: 1px solid var(--card-border);
+    background: #fff;
+  }
+  .browser-bar {
+    background: #e9edf2;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .browser-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .browser-dot.red { background: #f87171; }
+  .browser-dot.yellow { background: #fbbf24; }
+  .browser-dot.green { background: #34d399; }
+  .browser-url {
+    flex: 1;
+    background: #fff;
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    margin-left: 4px;
+  }
+  .browser-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* PERSONALIZAÇÃO */
+  .custom-box {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 18px;
+    padding: 44px;
+    margin-top: 32px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+  .custom-box .col { flex: 1; }
+  .custom-box h3 {
+    font-size: 1.4rem;
+    margin: 0 0 14px;
+    color: #fff;
+  }
+  .custom-box p { color: #cbd5e1; margin: 0 0 12px; }
+  .custom-box ul { margin: 0; padding-left: 0; list-style: none; }
+  .custom-box li {
+    padding-left: 26px;
+    position: relative;
+    margin-bottom: 10px;
+    color: #e2e8f0;
+  }
+  .custom-box li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 800;
+  }
+  .custom-pill {
+    display: inline-block;
+    background: rgba(245,166,35,0.15);
+    border: 1px solid rgba(245,166,35,0.4);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+
+  /* MÓDULOS EXTRA */
+  .extra-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 32px;
+  }
+  .extra-item {
+    background: #fff;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+  .extra-item h4 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .extra-item h4::before {
+    content: "";
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .extra-item p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  /* CTA FINAL */
+  .cta {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 72px 24px;
+    border-radius: 18px;
+  }
+  .cta h2 { color: #fff; }
+  .cta p { color: #cbd5e1; max-width: 600px; margin: 12px auto 28px; }
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--navy);
+  }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 32px 24px 48px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  footer .brand {
+    font-weight: 800;
+    color: var(--navy);
+  }
+  footer .brand span { color: var(--accent-dark); }
+
+  /* PRINT */
+  @media print {
+    .screen-block { page-break-inside: avoid; }
+    .card, .extra-item { break-inside: avoid; }
+    section { padding: 32px 0; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    .grid-cards { grid-template-columns: 1fr; }
+    .extra-grid { grid-template-columns: 1fr; }
+    .screen-block, .screen-block.reverse {
+      flex-direction: column;
+    }
+    .custom-box { flex-direction: column; }
+    .wordmark { font-size: 2.6rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="hero-badge">Demonstração personalizada</span>
+    <h1 class="wordmark">Caçamb<span>AI</span></h1>
+    <p class="tagline">O sistema de gestão completo para locadoras de caçambas — com a identidade da sua empresa.</p>
+    <p class="hero-sub">Do primeiro contato com o cliente até a nota fiscal. Da programação da entrega ao motorista em campo.
+    Nas próximas páginas você vai conhecer, na prática, as telas que podem se tornar o novo dia a dia da sua operação —
+    construídas sob medida, com a sua marca e as suas regras.</p>
+  </div>
+
+  <div class="container">
+
+    <!-- INTRO -->
+    <section>
+      <div class="section-kicker">Sobre o CaçambAI</div>
+      <h2>Um sistema só, para toda a operação</h2>
+      <p class="lead">
+        Toda locadora de caçambas conhece o mesmo problema: pedidos no WhatsApp, controle de caçambas em planilha,
+        nota fiscal em outro sistema, financeiro em outro, e o motorista descobrindo o endereço de última hora.
+        O <strong>CaçambAI</strong> nasceu para acabar com essa fragmentação — atendimento, operação, financeiro,
+        fiscal, controle de resíduos (MTR) e app do motorista, tudo conectado, em um só lugar.
+      </p>
+      <p class="lead">
+        As telas a seguir são <strong>reais</strong> — fazem parte de um sistema em produção, usado hoje por uma
+        empresa do setor. E esse é o ponto mais importante desta proposta: <strong>o seu sistema não será um
+        clone genérico</strong>. Ele será construído com a sua marca, suas cores, seu jeito de precificar, seus
+        tipos de caçamba e as regras específicas da sua operação.
+      </p>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section>
+      <div class="section-kicker">Por que CaçambAI</div>
+      <h2>Feito sob medida, pensado para crescer</h2>
+      <p class="lead">Seis pilares que tornam o CaçambAI diferente de um sistema de gestão genérico.</p>
+
+      <div class="grid-cards">
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="9" r="1.4" fill="currentColor"/><circle cx="15" cy="9" r="1.4" fill="currentColor"/><circle cx="9" cy="15" r="1.4" fill="currentColor"/></svg>
+          </div>
+          <h3>100% personalizável</h3>
+          <p>Logotipo, cores, nome da empresa e até as regras de negócio são ajustados para a sua operação.
+          Seu sistema vive em um endereço próprio, ex: <em>suaempresa.cacambai.com.br</em>.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>
+          </div>
+          <h3>Do pedido à fatura, sem retrabalho</h3>
+          <p>Um pedido criado no atendimento já vira Ordem de Serviço, gera fatura, nota fiscal e MTR — sem
+          digitar a mesma informação duas vezes.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+          </div>
+          <h3>Fiscal e financeiro integrados</h3>
+          <p>Emissão de NFS-e direto pelo sistema, com status em tempo real junto à SEFAZ, controle de faturas,
+          boletos, PIX e inadimplência.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+          </div>
+          <h3>App do motorista</h3>
+          <p>O motorista recebe a programação do dia, executa a entrega ou retirada e atualiza o status
+          direto do celular — sem ligação para o escritório.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          </div>
+          <h3>Roteirização e frota</h3>
+          <p>Programação diária em formato kanban por motorista e mapa com a localização e o status de cada
+          caçamba da frota.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>Seguro e multi-tenant</h3>
+          <p>Os dados da sua empresa ficam em um ambiente isolado dos demais clientes, com controle de acesso
+          por usuário e por função.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOUR DE TELAS -->
+    <section>
+      <div class="section-kicker">Tour pelo sistema</div>
+      <h2 class="tour-intro">Conheça as principais telas</h2>
+      <p class="lead">
+        Um passeio pelo dia a dia de quem usa o CaçambAI: do gestor que acompanha tudo pelo painel, ao
+        atendente que abre um pedido, à equipe financeira que cobra e emite notas.
+      </p>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: -0.5rem;">
+        * As telas abaixo usam dados fictícios apenas para ilustração — em produção, cada empresa vê
+        somente as suas próprias informações, com sua marca e seus clientes.
+      </p>
+
+      <!-- 1. Dashboard -->
+      <div class="screen-block">
+        <div class="screen-image">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dot red"></span><span class="browser-dot yellow"></span><span class="browser-dot green"></span>
+              <span class="browser-url">suaempresa.cacambai.com.br/dashboard</span>
+            </div>
+            <img src="screenshots-demo/01-dashboard.png" alt="Dashboard operacional do CaçambAI">
+          </div>
+        </div>
+        <div class="screen-text">
+          <span class="tag">Visão geral</span>
+          <h3>O painel que mostra a operação inteira de uma vez</h3>
+          <p>Ao entrar no sistema, o gestor já vê o que importa: quantos pedidos têm hoje, quantas caçambas
+          estão em rota, quantas estão na rua e quais faturas estão vencidas.</p>
+          <ul>
+            <li>Indicadores em tempo real: pedidos do dia, em rota, concluídos no mês e caçambas em campo</li>
+            <li>Gráficos de pedidos por status e da frota (disponível x em uso)</li>
+            <li>Lista de pedidos recentes e alertas operacionais (ex: faturas vencidas)</li>
+            <li>Indicadores e prioridades do painel ajustados ao que importa para o seu negócio</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2. Lista de Pedidos -->
+      <div class="screen-block reverse">
+        <div class="screen-image">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dot red"></span><span class="browser-dot yellow"></span><span class="browser-dot green"></span>
+              <span class="browser-url">suaempresa.cacambai.com.br/pedidos</span>
+            </div>
+            <img src="screenshots-demo/02-lista-pedidos.png" alt="Lista de pedidos / locações do CaçambAI">
+          </div>
+        </div>
+        <div class="screen-text">
+          <span class="tag">Atendimento</span>
+          <h3>Central de locações — do orçamento à entrega</h3>
+          <p>Toda solicitação de caçamba passa por aqui. Uma única tela para acompanhar orçamentos,
+          pedidos programados, em rota, concluídos e faturados.</p>
+          <ul>
+            <li>Busca rápida por cliente, número do pedido, CPF ou CNPJ</li>
+            <li>Filtros por período e por status da locação</li>
+            <li>Tipo de caçamba e situação fiscal visíveis na mesma linha</li>
+            <li>Botão "Nova Locação" sempre à mão para abrir um pedido</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3. Novo Pedido -->
+      <div class="screen-block">
+        <div class="screen-image">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dot red"></span><span class="browser-dot yellow"></span><span class="browser-dot green"></span>
+              <span class="browser-url">suaempresa.cacambai.com.br/pedidos/novo</span>
+            </div>
+            <img src="screenshots-demo/03-novo-pedido-vazio.png" alt="Tela de novo pedido do CaçambAI">
+          </div>
+        </div>
+        <div class="screen-text">
+          <span class="tag">Atendimento</span>
+          <h3>Abertura de pedido em segundos</h3>
+          <p>Formulário pensado para a rotina do atendimento: tipo de pedido, cliente, endereço de entrega,
+          tipo de caçamba e tipo de locação — com o valor calculado automaticamente.</p>
+          <ul>
+            <li>Três tipos de operação: <strong>Colocada</strong>, <strong>Retirada</strong> e <strong>Troca</strong></li>
+            <li>Cadastro de um novo endereço de entrega sem sair da tela do pedido</li>
+            <li>Locação interna (não faturável) para uso próprio da empresa</li>
+            <li>Resumo do pedido e valor total calculados em tempo real, ao lado do formulário</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4. Detalhe do Pedido + Programação -->
+      <div class="screen-block reverse">
+        <div class="screen-image">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dot red"></span><span class="browser-dot yellow"></span><span class="browser-dot green"></span>
+              <span class="browser-url">suaempresa.cacambai.com.br/pedidos/108093</span>
+            </div>
+            <img src="screenshots-demo/06-modal-programar.png" alt="Detalhe do pedido e programação de motorista no CaçambAI">
+          </div>
+        </div>
+        <div class="screen-text">
+          <span class="tag">Operação</span>
+          <h3>Do orçamento até a fatura, em uma linha do tempo</h3>
+          <p>Cada pedido tem uma jornada visual clara: <em>Orçamento → Programado → Em Rota → Em Execução →
+          Concluído → Faturado</em>. Direto dessa tela, o gestor programa motorista e veículo, gera a Ordem
+          de Serviço e acompanha o status fiscal e financeiro.</p>
+          <ul>
+            <li>Linha do tempo de status visível para toda a equipe</li>
+            <li>Programação de motorista, veículo, data e hora em um único modal</li>
+            <li>Geração de Ordem de Serviço (OS) e do MTR de resíduos</li>
+            <li>Vínculo automático com fatura, boletos e nota fiscal do pedido</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 5. Retiradas -->
+      <div class="screen-block">
+        <div class="screen-image">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dot red"></span><span class="browser-dot yellow"></span><span class="browser-dot green"></span>
+              <span class="browser-url">suaempresa.cacambai.com.br/pedidos/retiradas</span>
+            </div>
+            <img src="screenshots-demo/10-retiradas.png" alt="Tela de retiradas do CaçambAI">
+          </div>
+        </div>
+        <div class="screen-text">
+          <span class="tag">Operação</span>
+          <h3>Nenhuma caçamba esquecida na rua</h3>
+          <p>Uma lista dedicada de retiradas: orçamentos e pedidos aguardando recolhimento, com status e
+          valores visíveis de imediato — para o time de operação nunca perder o controle do que precisa
+          voltar para o pátio.</p>
+          <ul>
+            <li>Listagem só de retiradas, separada da operação de entregas</li>
+            <li>Status de cada item (orçamento, aprovado, faturado)</li>
+            <li>Busca por cliente, número do pedido ou caçamba</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 6. Operações Finalizadas -->
+      <div class="screen-block reverse">
+        <div class="screen-image">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dot red"></span><span class="browser-dot yellow"></span><span class="browser-dot green"></span>
+              <span class="browser-url">suaempresa.cacambai.com.br/pedidos/finalizados</span>
+            </div>
+            <img src="screenshots-demo/11-finalizados.png" alt="Tela de operações finalizadas do CaçambAI">
+          </div>
+        </div>
+        <div class="screen-text">
+          <span class="tag">Histórico</span>
+          <h3>Histórico completo, pronto para auditoria</h3>
+          <p>Todas as locações concluídas e faturadas em um único lugar, com totais consolidados e
+          exportação para análise — facilitando a vida da contabilidade e da gestão.</p>
+          <ul>
+            <li>Total de pedidos e valor total do período de um olhar</li>
+            <li>Filtro por situação fiscal (com ou sem nota fiscal emitida)</li>
+            <li>Exportação em CSV e geração de relatórios</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 7. Clientes -->
+      <div class="screen-block">
+        <div class="screen-image">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dot red"></span><span class="browser-dot yellow"></span><span class="browser-dot green"></span>
+              <span class="browser-url">suaempresa.cacambai.com.br/clientes</span>
+            </div>
+            <img src="screenshots-demo/12-clientes.png" alt="Tela de clientes / CRM do CaçambAI">
+          </div>
+        </div>
+        <div class="screen-text">
+          <span class="tag">CRM</span>
+          <h3>Cadastro de clientes, pessoa física e jurídica</h3>
+          <p>Uma base completa de clientes, com busca por nome, CPF/CNPJ e status. Cada cliente carrega
+          seus endereços de entrega, histórico de pedidos e faturas — tudo conectado.</p>
+          <ul>
+            <li>Cadastro de Pessoa Física e Jurídica no mesmo lugar</li>
+            <li>Busca instantânea por nome, razão social, CPF ou CNPJ</li>
+            <li>Status ativo/inativo e múltiplos endereços por cliente</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 8. Faturas / Financeiro -->
+      <div class="screen-block reverse">
+        <div class="screen-image">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dot red"></span><span class="browser-dot yellow"></span><span class="browser-dot green"></span>
+              <span class="browser-url">suaempresa.cacambai.com.br/financeiro/faturas</span>
+            </div>
+            <img src="screenshots-demo/14-faturas.png" alt="Tela de faturas do CaçambAI">
+          </div>
+        </div>
+        <div class="screen-text">
+          <span class="tag">Financeiro</span>
+          <h3>Faturamento e cobrança sob controle</h3>
+          <p>Visão consolidada do financeiro: quanto está em aberto, quanto está vencido, quanto já foi
+          recebido — com filtros por status e forma de pagamento.</p>
+          <ul>
+            <li>Indicadores de valores em aberto, vencidos e recebidos</li>
+            <li>Filtros por status: todas, abertas, vencidas, pagas, parciais e canceladas</li>
+            <li>Formas de pagamento: boleto, PIX, dinheiro e transferência</li>
+            <li>Emissão de novas faturas a partir dos pedidos concluídos</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 9. Fiscal -->
+      <div class="screen-block">
+        <div class="screen-image">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dot red"></span><span class="browser-dot yellow"></span><span class="browser-dot green"></span>
+              <span class="browser-url">suaempresa.cacambai.com.br/fiscal/notas</span>
+            </div>
+            <img src="screenshots-demo/13-fiscal.png" alt="Tela de notas fiscais do CaçambAI">
+          </div>
+        </div>
+        <div class="screen-text">
+          <span class="tag">Fiscal</span>
+          <h3>NFS-e direto do sistema, sem alternar de tela</h3>
+          <p>Emissão, cancelamento e consulta de notas fiscais de serviço com status em tempo real junto
+          à SEFAZ — e a possibilidade de registrar notas emitidas fora do sistema, quando necessário.</p>
+          <ul>
+            <li>Indicador de conexão com a SEFAZ em tempo real</li>
+            <li>Painel com notas emitidas, autorizadas, pendentes e rejeitadas/canceladas</li>
+            <li>Sincronização automática com o provedor fiscal</li>
+            <li>Registro manual de NF externa quando emitida fora do sistema</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 10. Rotas -->
+      <div class="screen-block reverse">
+        <div class="screen-image">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dot red"></span><span class="browser-dot yellow"></span><span class="browser-dot green"></span>
+              <span class="browser-url">suaempresa.cacambai.com.br/operacao/rotas</span>
+            </div>
+            <img src="screenshots-demo/15-rotas.png" alt="Tela de programação de rotas do CaçambAI">
+          </div>
+        </div>
+        <div class="screen-text">
+          <span class="tag">Logística</span>
+          <h3>A semana inteira da frota, em um kanban</h3>
+          <p>Programação diária com visão semanal: distribua os pedidos entre os motoristas, veja quem
+          está com rota livre e acompanhe as execuções aguardando atribuição.</p>
+          <ul>
+            <li>Kanban semanal de rotas por motorista</li>
+            <li>Lista de execuções do dia, com pedidos aguardando atribuição</li>
+            <li>Filtro por motorista e navegação rápida entre os dias</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 11. Caçambas -->
+      <div class="screen-block">
+        <div class="screen-image">
+          <div class="browser-frame">
+            <div class="browser-bar">
+              <span class="browser-dot red"></span><span class="browser-dot yellow"></span><span class="browser-dot green"></span>
+              <span class="browser-url">suaempresa.cacambai.com.br/cacambas</span>
+            </div>
+            <img src="screenshots-demo/16-cacambas.png" alt="Tela de controle de caçambas do CaçambAI">
+          </div>
+        </div>
+        <div class="screen-text">
+          <span class="tag">Patrimônio</span>
+          <h3>Controle total da frota de caçambas</h3>
+          <p>Cada caçamba é tratada como um patrimônio: total da frota, quantas estão disponíveis, em uso
+          ou precisando de manutenção — com mapa de localização e cadastro por tipo e tamanho.</p>
+          <ul>
+            <li>Indicadores de frota total, disponíveis, em campo e em manutenção</li>
+            <li>Mapa com a localização das caçambas em operação</li>
+            <li>Cadastro de tipos e tamanhos de caçamba próprios da sua empresa</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PERSONALIZAÇÃO -->
+    <section>
+      <div class="section-kicker">Personalização</div>
+      <h2>Esse sistema pode ser o seu — com a sua marca</h2>
+      <p class="lead">
+        Tudo o que você viu até aqui faz parte de um ambiente real, configurado para uma empresa do
+        setor. É exatamente assim que funciona o CaçambAI: cada cliente recebe o seu próprio ambiente,
+        completamente isolado, com a identidade visual e as regras da sua empresa.
+      </p>
+
+      <div class="custom-box">
+        <div class="col">
+          <span class="custom-pill">O que entra na personalização</span>
+          <h3>Construído ao redor do seu negócio</h3>
+          <ul>
+            <li>Logotipo, cores e nome da empresa em todo o sistema e nos documentos gerados</li>
+            <li>Endereço próprio do tipo <em>suaempresa.cacambai.com.br</em></li>
+            <li>Tipos e tamanhos de caçamba cadastrados conforme a sua frota</li>
+            <li>Tipos de locação (diária, semanal, quinzenal, mensal) e regras de preço da sua tabela</li>
+            <li>Perfis de acesso por função: administrador, atendimento, operação, financeiro, fiscal e motorista</li>
+            <li>Configuração fiscal de acordo com o regime e o município da sua empresa</li>
+          </ul>
+        </div>
+        <div class="col">
+          <p style="color:#fff; font-size:1.05rem; font-weight:600; margin-bottom:14px;">
+            "Cada operação tem o seu jeito de funcionar — o sistema é que se adapta a ele, não o contrário."
+          </p>
+          <p>
+            Antes de começar, mapeamos junto com você: o fluxo de atendimento, os tipos de caçamba e
+            locação, as regras fiscais e financeiras, e a forma como o seu motorista trabalha hoje.
+            A partir disso, configuramos o CaçambAI para refletir exatamente a sua rotina — sem te
+            obrigar a se adaptar a um sistema genérico.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULOS EXTRA -->
+    <section>
+      <div class="section-kicker">E ainda mais</div>
+      <h2>Módulos que crescem com a sua operação</h2>
+      <p class="lead">
+        Além das telas que você viu, o CaçambAI já conta com módulos adicionais — e novos módulos
+        podem ser desenvolvidos sob medida conforme a sua necessidade.
+      </p>
+
+      <div class="extra-grid">
+        <div class="extra-item">
+          <h4>App do motorista</h4>
+          <p>Programação do dia, execução de entregas/retiradas e atualização de status direto do celular,
+          com geolocalização no momento da ação.</p>
+        </div>
+        <div class="extra-item">
+          <h4>MTR de Resíduos</h4>
+          <p>Geração e assinatura do Manifesto de Transporte de Resíduos vinculado a cada pedido, dentro
+          do fluxo operacional.</p>
+        </div>
+        <div class="extra-item">
+          <h4>Cobrança automática via WhatsApp</h4>
+          <p>Envio de mensagens de cobrança e avisos de vencimento para clientes inadimplentes, com
+          modelos de mensagem configuráveis.</p>
+        </div>
+        <div class="extra-item">
+          <h4>CRM comercial (prospects)</h4>
+          <p>Funil de oportunidades para acompanhar potenciais clientes, do primeiro contato até a
+          conversão em cliente ativo.</p>
+        </div>
+        <div class="extra-item">
+          <h4>Importação de extratos (OFX/PDF)</h4>
+          <p>Conciliação financeira a partir de extratos bancários, com categorização e vínculo
+          automático com faturas e boletos.</p>
+        </div>
+        <div class="extra-item">
+          <h4>Relatórios sob medida</h4>
+          <p>Relatórios de faturamento, produtividade da frota e indicadores específicos da sua operação,
+          criados conforme a sua necessidade de gestão.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="border-bottom: none;">
+      <div class="cta">
+        <h2>Vamos construir o seu CaçambAI?</h2>
+        <p>
+          O próximo passo é simples: uma conversa para entender a sua operação, mapear o que pode ser
+          personalizado e te mostrar, na prática, o sistema funcionando com a cara da sua empresa.
+        </p>
+        <div class="cta-buttons">
+          <a class="btn btn-primary" href="#">Agendar uma demonstração</a>
+          <a class="btn btn-outline" href="#">Falar com a equipe</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p class="brand">Caçamb<span>AI</span></p>
+    <p>Desenvolvido por Sensori AI — sistemas sob medida para o setor de locação de caçambas e resíduos.</p>
+  </footer>
+
+</body>
+</html>
